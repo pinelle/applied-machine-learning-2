@@ -12,7 +12,6 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression 
 from sklearn.metrics import r2_score
 
-
 #Pressure
 y_train = np.array([
      [0.002],
@@ -69,7 +68,6 @@ plt.xlabel('Temperature')
 plt.ylabel('Pressure') 
   
 plt.show() 
-
 
 # Visualising the Polynomial Regression results
 y_pred = lin2.predict(poly.fit_transform(X_test)) 
