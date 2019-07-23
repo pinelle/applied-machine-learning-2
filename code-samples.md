@@ -1,16 +1,86 @@
-## Introduction to Python Assignments
+## Applied Machine Learning II Code Samples
 
 These assignments are included in my Introduction to Python workshop.
 
 
-## Assignment 1
-Learn how to use the Spyder IDE. Follow these steps:
-- Start Spyder
-- Work with default initial file
-- Create a very simple program: print(“hello”)
-- Save the .py file
-- Run the program
-- Verify the output 
+## Polynomial Regression
+
+```markdown
+import numpy as np 
+import matplotlib.pyplot as plt 
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression 
+from sklearn.metrics import r2_score
+
+
+#Pressure
+y_train = np.array([
+     [0.002],
+     [0.0012],
+     [0.0060],
+     [0.0300],
+     [0.0900],
+     [0.2799]])
+
+#Temperature
+X_train = np.array([
+    [0],	
+    [20],	
+    [40],	
+    [60],	
+    [80],	
+    [100]])
+
+y_test = np.array([
+     [0.001],
+     [0.0092],
+     [0.0060],
+     [0.0300],
+     [0.0900],
+     [0.2799]])
+
+#Temperature
+X_test = np.array([
+    [20],	
+    [80],	
+    [40],	
+    [60],	
+    [80],	
+    [100]])
+
+# Fitting Linear Regression to the dataset 
+lin = LinearRegression()
+lin.fit(X_train, y_train) 
+y_pred = lin.predict(X_test)
+print('\n\nR-squared: %.2f' % r2_score(y_test, y_pred))
+
+# Fitting Polynomial Regression to the dataset 
+poly = PolynomialFeatures(degree = 4) 
+X_poly = poly.fit_transform(X_train) 
+poly.fit(X_poly, y_train) 
+lin2 = LinearRegression() 
+lin2.fit(X_poly, y_train) 
+
+# Visualising the Linear Regression results 
+plt.scatter(X_train, y_train, color = 'blue') 
+plt.plot(X_train, lin.predict(X_train), color = 'red') 
+plt.title('Linear Regression') 
+plt.xlabel('Temperature') 
+plt.ylabel('Pressure') 
+  
+plt.show() 
+
+
+# Visualising the Polynomial Regression results
+y_pred = lin2.predict(poly.fit_transform(X_test)) 
+print('R-squared: %.2f' % r2_score(y_test, y_pred))
+
+plt.scatter(X_train, y_train, color = 'blue') 
+plt.plot(X_train, lin2.predict(poly.fit_transform(X_train)), color = 'red') 
+#Plot titles  
+plt.show() 
+```
+
 
 
 ## Assignment 2
