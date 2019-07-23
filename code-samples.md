@@ -1,9 +1,6 @@
 ## Applied Machine Learning II Code Samples
 
-These assignments are included in my Introduction to Python workshop.
-
-
-
+These are the code samples covered in the slides in my Applied Machine Learning II workshop.
 
 ## Simple Linear Regression (Ordinary Least Squares)
 
