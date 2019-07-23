@@ -126,6 +126,45 @@ plt.plot(X_train, lin2.predict(poly.fit_transform(X_train)), color = 'red')
 plt.show() 
 ```
 
+## Logistic Regression
+
+```markdown
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+
+#x contains bid price, y contains win (1) / loss (0)
+x = np.array([100,120,150,170,200,200,202,203,205,210,215,250,270,300,305,310])
+y = np.array([1,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0])
+
+x_test = np.array([120,155,174, 200,202,203,215, 250 ,400, 510, 660, 529, 660, 710, 888, 900])
+y_test = np.array([1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0])
+
+#Convert a 1D array to a 2D array in numpy
+X = x.reshape(-1,1)
+X_test = x_test.reshape(-1,1)
+
+logreg = LogisticRegression(C=1.0, solver='lbfgs', multi_class='ovr')
+logreg.fit(X, y)
+
+predictions = logreg.predict(X_test)
+score = logreg.score(X_test, y_test)
+print(score)
+
+prices = np.arange(100, 310, 0.5) #create values, step .5, for plot
+probabilities= []
+for i in prices:
+    p_loss, p_win = logreg.predict_proba([[i]])[0]
+    probabilities.append(p_win)
+    
+plt.scatter(prices,probabilities) #display linear regression model    
+plt.title("Logistic Regression Model")
+plt.xlabel('Price')
+plt.ylabel('Status (1:Won, 0:Lost)')
+```
+
+
+
 
 
 ## Assignment 2
