@@ -193,6 +193,36 @@ score = logisticRegr.score(x_test, y_test)
 print(score)
 ```
 
+Decision Trees
+
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+cancer = load_breast_cancer()
+
+#569 instances, 30 features
+print("\nTarget names:", cancer['target_names'])
+print("\nFeature names:\n", cancer['feature_names'])
+
+X_train, X_test, y_train, y_test = train_test_split(
+cancer.data, cancer.target, stratify=cancer.target, random_state=42)
+
+#create tree without any pre-pruning
+tree = DecisionTreeClassifier(random_state=0)
+tree.fit(X_train, y_train)
+print("\nTree with no pre-pruning")
+print("Accuracy on training set: {:.3f}".format(tree.score(X_train, y_train)))
+print("Accuracy on test set: {:.3f}\n".format(tree.score(X_test, y_test)))
+
+#create tree by limiting it to max-depth of 4
+print("Tree with max depth of 4")
+tree = DecisionTreeClassifier(max_depth=4, random_state=0)
+tree.fit(X_train, y_train)
+print("Accuracy on training set: {:.3f}".format(tree.score(X_train, y_train)))
+print("Accuracy on test set: {:.3f}\n".format(tree.score(X_test, y_test)))
+```
 
 
 ## Assignment 2
