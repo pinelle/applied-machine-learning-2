@@ -1,6 +1,6 @@
 ## Applied Machine Learning II Code Samples
 
-These are the code samples covered in the slides in my Applied Machine Learning II workshop.
+These are the code samples covered in the slides for my Applied Machine Learning II workshop.
 
 ## Simple Linear Regression (Ordinary Least Squares)
 
