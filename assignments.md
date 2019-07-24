@@ -1,9 +1,8 @@
 ## Introduction to Python Assignments
 
-These assignments are included in my Introduction to Python workshop.
+This assignment is included in my Applied Machine Learning II workshop.
 
-
-## Assignment 1
+## Assignment
 
 ```markdown
 from sklearn.linear_model import LinearRegression
@@ -29,6 +28,3 @@ plt.plot(new_X, new_y)
 plt.scatter(X,y2)
 print(r2_score(y2, y_pred))
 ```
-
-
-
