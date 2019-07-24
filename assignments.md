@@ -16,7 +16,7 @@ X, y = make_regression(n_samples = 300, n_features=1, noise=8, bias=2)
 y2 = y**2
 
 #create model
-poly_features = PolynomialFeatures(degree =15)  
+poly_features = PolynomialFeatures(degree = 5)  
 X_poly = poly_features.fit_transform(X)
 poly_model = LinearRegression()  
 poly_model.fit(X_poly, y2)
