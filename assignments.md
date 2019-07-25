@@ -4,6 +4,11 @@ This assignment is included in my Applied Machine Learning II workshop.
 
 ## Assignment
 
+- Copy and paste the assignment into a new Anaconda window
+- The code runs polynomial regression on a randomly selected dataset
+- The data is plotted on a scatterplot, and the regression line is shown
+- Continue to run the code approximately 20 times, and note how the data distribution affects the R-squared value
+
 ```markdown
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
