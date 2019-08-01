@@ -144,7 +144,6 @@ X_test = x_test.reshape(-1,1)
 logreg = LogisticRegression(C=1.0, solver='lbfgs', multi_class='ovr')
 logreg.fit(X, y)
 
-predictions = logreg.predict(X_test)
 score = logreg.score(X_test, y_test)
 print(score)
 
@@ -184,7 +183,6 @@ x_train, x_test, y_train, y_test = train_test_split(digits.data, digits.target, 
 
 logisticRegr = LogisticRegression()
 logisticRegr.fit(x_train, y_train)
-predictions = logisticRegr.predict(x_test)
 
 score = logisticRegr.score(x_test, y_test)
 print(score)
